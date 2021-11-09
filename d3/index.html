@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>barchart-d3.js</title>
+  </head>
+  <body>
+    <div id="chart"></div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+      {
+        const width = 500; // svg 가로
+        const height = 250; // svg 높이
+        const svg = d3
+          .select("#chart")
+          .append("svg")
+          .attr("width", width)
+          .attr("height", height);
+        const ArrayofData = [
+          50,
+          90,
+          120,
+          250,
+          200,
+          150,
+          100,
+          50,
+          10,
+          40,
+          80,
+          60,
+          40,
+          70,
+          50,
+          90,
+          120,
+          60,
+          40,
+          70,
+          50,
+          60,
+          40,
+          70,
+        ];
+        svg
+          .selectAll("rect") // 모든 DOM <rect/> element를 선택
+          .data(ArrayofData) // DOM <rect/> element에 ArrayofData 연결 (1대1)
+          .enter() // 아직 DOM 요소에 바인딩되지 않은 데이터 부분을 반환합니다.
+          .append("rect") // 각 데이터 값에 대한 선택된 svg에 <rect/>를 추가
+          .attr("x", (d, idx) => idx * 20) // 각 x 속성(위치) 지정
+          .attr("y", (d) => height - d) // y 속성 지정 (250 - 데이터 값) -> svg 상단 지점이 0
+          .attr("width", 15) // 가로 속성 각 15로 지정
+          .attr("height", (d) => d) // 세로 속성은 그대로 반환
+          .attr("fill", "purple");
+
+        return svg.node();
+      }
+    </script>
+  </body>
+</html>
