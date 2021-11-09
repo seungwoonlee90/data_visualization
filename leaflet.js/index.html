@@ -14,25 +14,30 @@
       integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
       crossorigin=""
     ></script>
-    <script
-      type="text/javascript"
-      src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js?v1.3.0"
-    ></script>
     <title>leaflet-map</title>
   </head>
   <body>
     <!-- 배경지도 영역 추가하기-->
-    <div id="map"></div>
+    <div id="map" style="height: 100vh"></div>
+    <script
+      type="text/javascript"
+      src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js?v1.3.0"
+    ></script>
     <script>
-      var lat = 36.1358642;
-      var lng = 128.0785804;
-      var zoom = 7;
-      var layer = new L.StamenTileLayer("toner");
-      var map = new L.Map("map", {
-        center: new L.LatLng(lat, lng),
-        zoom: 6,
-      });
+      let lat = 37.481;
+      let lng = 126.893;
+      let zoom = 7;
+      let layer = new L.StamenTileLayer("terrain");
+      let statesData = "";
+      let map = L.map("map").setView([lat, lng], zoom);
       map.addLayer(layer);
+
+      L.marker([lat, lng])
+        .addTo(map)
+        .bindPopup("A pretty CSS3 popup.<br> Easily customizable.")
+        .openPopup();
+
+      L.geoJson(statesData).addTo(map);
     </script>
   </body>
 </html>
