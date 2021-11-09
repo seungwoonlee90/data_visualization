@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.2.2/echarts.min.js"
+      integrity="sha512-ivdGNkeO+FTZH5ZoVC4gS4ovGSiWc+6v60/hvHkccaMN2BXchfKdvEZtviy5L4xSpF8NPsfS0EVNSGf+EsUdxA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <title>eCharts.js-barRace</title>
+  </head>
+  <body>
+    <div id="main" style="width: 100vw; height: 100vh"></div>
+    <script>
+      var chartDom = document.getElementById("main");
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      const data = [];
+      for (let i = 0; i < 5; ++i) {
+        data.push(Math.round(Math.random() * 200));
+      }
+      option = {
+        xAxis: {
+          max: "dataMax",
+        },
+        yAxis: {
+          type: "category",
+          data: ["A", "B", "C", "D", "E"],
+          inverse: true,
+          animationDuration: 300,
+          animationDurationUpdate: 300,
+          max: 2, // only the largest 3 bars will be displayed
+        },
+        series: [
+          {
+            realtimeSort: true,
+            name: "X",
+            type: "bar",
+            data: data,
+            label: {
+              show: true,
+              position: "right",
+              valueAnimation: true,
+            },
+          },
+        ],
+        legend: {
+          show: true,
+        },
+        animationDuration: 0,
+        animationDurationUpdate: 3000,
+        animationEasing: "linear",
+        animationEasingUpdate: "linear",
+      };
+      function run() {
+        for (var i = 0; i < data.length; ++i) {
+          if (Math.random() > 0.9) {
+            data[i] += Math.round(Math.random() * 2000);
+          } else {
+            data[i] += Math.round(Math.random() * 200);
+          }
+        }
+        myChart.setOption({
+          series: [
+            {
+              type: "bar",
+              data,
+            },
+          ],
+        });
+      }
+      setTimeout(function () {
+        run();
+      }, 0);
+      setInterval(function () {
+        run();
+      }, 5000);
+
+      option && myChart.setOption(option);
+    </script>
+  </body>
+</html>
