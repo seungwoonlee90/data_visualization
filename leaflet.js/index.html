@@ -23,12 +23,13 @@
       type="text/javascript"
       src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js?v1.3.0"
     ></script>
+    <script src="//d3js.org/d3.v3.min.js"></script>
     <script>
       let lat = 37.481;
       let lng = 126.893;
       let zoom = 7;
       let layer = new L.StamenTileLayer("terrain");
-      let statesData = "";
+      let korea = "";
       let map = L.map("map").setView([lat, lng], zoom);
       map.addLayer(layer);
 
@@ -37,7 +38,7 @@
         .bindPopup("A pretty CSS3 popup.<br> Easily customizable.")
         .openPopup();
 
-      L.geoJson(statesData).addTo(map);
+      L.geoJson(korea).addTo(map);
     </script>
   </body>
 </html>
