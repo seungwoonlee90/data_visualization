@@ -21,8 +21,8 @@
     ></script>
     <title>leaflet-map</title>
     <style>
-      .body {
-        margin: 0 0 0 0;
+      body {
+        margin: 0;
       }
       #map {
         width: 100vw;
@@ -58,19 +58,15 @@
     ></script>
     <script src="https://d3js.org/d3-queue.v3.min.js"></script>
     <script>
-      let width = 1200,
-        height = 600;
+      let width = window.innerWidth,
+        height = window.innerHeight;
 
-      let svg = d3
-        .select("#chart")
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height);
+      let svg = d3.select("#chart").append("svg");
 
       let projection = d3.geo
         .mercator()
         .center([128, 36])
-        .scale(4000)
+        .scale(1000)
         .translate([width / 2, height / 2]);
 
       let path = d3.geo.path().projection(projection);
@@ -81,10 +77,14 @@
       let map = L.map("map").setView([lat, lng], zoom);
 
       map.addLayer(layer);
-      L.marker([lat, lng])
-        .addTo(map)
-        .bindPopup("Do you wanna build a snow man.")
-        .openPopup();
+      navigator.geolocation.getCurrentPosition(function (pos) {
+        let latitude = pos.coords.latitude;
+        let longitude = pos.coords.longitude;
+        L.marker([latitude, longitude])
+          .addTo(map)
+          .bindPopup("You are Here.")
+          .openPopup();
+      });
 
       d3.queue()
         .defer(
@@ -116,20 +116,32 @@
         }).addTo(map);
 
         function getColor(d) {
-          return d > 35000
-            ? "#800026"
+          return d > 40000
+            ? "#82ccdd"
+            : d > 39000
+            ? "#079992"
+            : d > 37000
+            ? "#3c6382"
+            : d > 35000
+            ? "#4a69bd"
+            : d > 33000
+            ? "#b8e994"
             : d > 32000
-            ? "#BD0026"
-            : d > 30000
-            ? "#E31A1C"
+            ? "#b71540"
+            : d > 29000
+            ? "#eb2f06"
+            : d > 26000
+            ? "#e55039"
             : d > 25000
-            ? "#FC4E2A"
+            ? "#0a3d62"
+            : d > 24000
+            ? "#e58e26"
             : d > 23000
-            ? "#FD8D3C"
+            ? "#fa983a"
             : d > 21000
-            ? "#FEB24C"
+            ? "#f6b93b"
             : d > 11000
-            ? "#FED976"
+            ? "#fad390"
             : "#FFEDA0";
         }
 
