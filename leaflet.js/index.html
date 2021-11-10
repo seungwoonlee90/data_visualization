@@ -73,7 +73,12 @@
       let lat = 36.22;
       let lng = 127.88;
       let zoom = 7;
-      let layer = new L.StamenTileLayer("terrain");
+      let layer = new L.TileLayer(
+        "http://xdworld.vworld.kr:8080/2d/Base/201802/{z}/{x}/{y}.png",
+        {
+          attribution: "© Vworld",
+        }
+      );
       let map = L.map("map").setView([lat, lng], zoom);
 
       map.addLayer(layer);
