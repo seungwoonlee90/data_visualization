@@ -70,7 +70,7 @@
             endLabel: {
               show: true,
               formatter: function (params) {
-                return params.value[3] + ": " + params.value[0];
+                return params.value[3] + ": " + params.value[1];
               },
             },
             labelLayout: {
@@ -81,10 +81,10 @@
             },
             encode: {
               x: "Year",
-              y: "Income",
-              label: ["Country", "Income"],
+              y: "Life Expectancy",
+              label: ["Country", "Life Expectancy"],
               itemName: "Year",
-              tooltip: ["Income"],
+              tooltip: ["Life Expectancy"],
             },
           });
         });
@@ -98,7 +98,7 @@
             ...datasetWithFilters,
           ],
           title: {
-            text: "Income of Germany and France since 1950",
+            text: "Life Expectancy of Countries since 1950",
           },
           tooltip: {
             order: "valueDesc",
@@ -109,7 +109,7 @@
             nameLocation: "middle",
           },
           yAxis: {
-            name: "Income",
+            name: "Life Expectancy",
           },
           grid: {
             right: 140,
