@@ -50,8 +50,13 @@
       src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js?v1.3.0"
     ></script>
     <script src="//d3js.org/d3.v3.min.js"></script>
-    <script src="http://d3js.org/topojson.v1.min.js"></script>
-    <script src="http://d3js.org/queue.v1.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"
+      integrity="sha512-4UKI/XKm3xrvJ6pZS5oTRvIQGIzZFoXR71rRBb1y2N+PbwAsKa5tPl2J6WvbEvwN3TxQCm8hMzsl/pO+82iRlg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://d3js.org/d3-queue.v3.min.js"></script>
     <script>
       let width = 1200,
         height = 600;
@@ -81,7 +86,7 @@
         .bindPopup("Do you wanna build a snow man.")
         .openPopup();
 
-      queue()
+      d3.queue()
         .defer(
           d3.json,
           "https://gist.githubusercontent.com/e9t/55699e9fa8c3eb7fe40c/raw/6525e2b8c571c825fefff58948172215da89ed12/municipalities-topo-simple.json"
