@@ -43,7 +43,35 @@
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.1.1/d3.min.js" integrity="sha512-COTaPOlz12cG4fSfcBsxZsjauBAyldqp+8FQUM/dZHm+ts/jR4AFoJhCqxy8K10Jrf3pojfsbq7fAPTb1XaVkg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        //자바스크립트는 여기에 입력
+        //자바스크립트는 여기에 입력(d3 활용 리팩토링 전)
+        let body = d3.select("body");
+        body.append("h2").text("Age distribuition of the world, 2010");
+        body.append("div").attr("class", "top-label age-label").append("p").text("age group");
+        body.append("div").attr("class", "top-label").append("p").text("portion of the population");
+        body.append("div").attr("class", "clearfix");
+
+        let svg = body.append("svg");
+        let barGroup = svg.append("g").attr("transform", "translate(100, 30) scale(43,1)").attr("class", "bar");
+        barGroup.append("rect").attr("x", 0).attr("y", 0).attr("height", 20).attr("width", 1.6);
+        barGroup.append("rect").attr("x", 0).attr("y", 25).attr("height", 20).attr("width", 1.5);
+        barGroup.append("rect").attr("x", 0).attr("y", 50).attr("height", 20).attr("width", 2.1);
+        barGroup.append("rect").attr("x", 0).attr("y", 75).attr("height", 20).attr("width", 2.6);
+        barGroup.append("rect").attr("x", 0).attr("y", 100).attr("height", 20).attr("width", 3.4);
+        barGroup.append("rect").attr("x", 0).attr("y", 125).attr("height", 20).attr("width", 4.5);
+        barGroup.append("rect").attr("x", 0).attr("y", 150).attr("height", 20).attr("width", 5.1);
+        barGroup.append("rect").attr("x", 0).attr("y", 175).attr("height", 20).attr("width", 6.0);
+        barGroup.append("rect").attr("x", 0).attr("y", 200).attr("height", 20).attr("width", 6.6);
+        barGroup.append("rect").attr("x", 0).attr("y", 225).attr("height", 20).attr("width", 7.1);
+        barGroup.append("rect").attr("x", 0).attr("y", 250).attr("height", 20).attr("width", 7.3);
+        barGroup.append("rect").attr("x", 0).attr("y", 275).attr("height", 20).attr("width", 8.1);
+        barGroup.append("rect").attr("x", 0).attr("y", 300).attr("height", 20).attr("width", 8.9);
+        barGroup.append("rect").attr("x", 0).attr("y", 325).attr("height", 20).attr("width", 8.8);
+        barGroup.append("rect").attr("x", 0).attr("y", 350).attr("height", 20).attr("width", 8.6);
+        barGroup.append("rect").attr("x", 0).attr("y", 375).attr("height", 20).attr("width", 8.8);
+        barGroup.append("rect").attr("x", 0).attr("y", 400).attr("height", 20).attr("width", 9.3);
+
+        let barLabelGroup = svg.append("g").attr("class", "bar-label");
+        //barLabelGroup부터 작성 필요.
     </script>
 </body>
 </html>
