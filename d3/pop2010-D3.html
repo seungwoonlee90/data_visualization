@@ -71,7 +71,35 @@
         barGroup.append("rect").attr("x", 0).attr("y", 400).attr("height", 20).attr("width", 9.3);
 
         let barLabelGroup = svg.append("g").attr("class", "bar-label");
-        //barLabelGroup부터 작성 필요.
+        barLabelGroup.append("text").attr("x", 90).attr("y", 45).text("80 and up");
+        barLabelGroup.append("text").attr("x", 90).attr("y", 70).text("75 - 79");
+        barLabelGroup.append("text").attr("x", 90).attr("y", 95).text("70 - 74");
+        barLabelGroup.append("text").attr("x", 90).attr("y", 120).text("65 - 69");
+        barLabelGroup.append("text").attr("x", 90).attr("y", 145).text("60 - 64");
+        barLabelGroup.append("text").attr("x", 90).attr("y", 170).text("55 - 59");
+        barLabelGroup.append("text").attr("x", 90).attr("y", 195).text("50 - 54");
+        barLabelGroup.append("text").attr("x", 90).attr("y", 220).text("44 - 49");
+        barLabelGroup.append("text").attr("x", 90).attr("y", 245).text("40 - 44");
+        barLabelGroup.append("text").attr("x", 90).attr("y", 270).text("35 - 39");
+        barLabelGroup.append("text").attr("x", 90).attr("y", 295).text("30 - 39");
+        barLabelGroup.append("text").attr("x", 90).attr("y", 320).text("25 - 29");
+        barLabelGroup.append("text").attr("x", 90).attr("y", 345).text("20 - 24");
+        barLabelGroup.append("text").attr("x", 90).attr("y", 370).text("15 - 19");
+        barLabelGroup.append("text").attr("x", 90).attr("y", 395).text("10 - 14");
+        barLabelGroup.append("text").attr("x", 90).attr("y", 420).text("5 - 9");
+        barLabelGroup.append("text").attr("x", 90).attr("y", 445).text("0 - 4");
+       
+        let axisTickGroup = svg.append("g").attr("transform", "translate(100,30)").attr("stroke","black");
+        axisTickGroup.append("line").attr("x1", 0).attr("y1", 0).attr("x2", 0).attr("y2", -10);
+        axisTickGroup.append("line").attr("x1", 107.75).attr("y1", 0).attr("x2", 107.75).attr("y2", -10);
+        axisTickGroup.append("line").attr("x1", 215.5).attr("y1", 0).attr("x2", 215.5).attr("y2", -10);
+        axisTickGroup.append("line").attr("x1", 323.25).attr("y1", 0).attr("x2", 323.25).attr("y2", -10);
+
+        let axisLabelGroup = svg.append("g").attr("transform", "translate(100,30)").attr("class", "axis-label");
+        axisLabelGroup.append("text").attr("x", 0).attr("y", -15).text("0");
+        axisLabelGroup.append("text").attr("x", 107.75).attr("y", -15).text("2.5%");
+        axisLabelGroup.append("text").attr("x", 215.5).attr("y", -15).text("5%");
+        axisLabelGroup.append("text").attr("x", 323.25).attr("y", -15).text("7.5%");
     </script>
 </body>
 </html>
