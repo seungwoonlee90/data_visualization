@@ -55,9 +55,16 @@ async function draw () {
 
     // Axes
     const xAxis = d3.axisBottom(xScale)
-    ctr.append("g")
+    const xAxisGroup = ctr.append("g")
             .call(xAxis)
             .style('transform', `translateY(${dimensions.ctrHeight}px)`)
+            .calssed("axis", true)
+
+    xAxisGroup.append("text")
+            .attr("x", dimensions.ctrWidth/2)
+            .attr("y", dimensions.margin.bottom - 10)
+            .attr("fill", "black")
+            .text("Humidity")
 }
 
 draw()
